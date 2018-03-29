@@ -7,7 +7,7 @@ class default_1 extends React.Component {
             React.createElement("h5", null, "Index"),
             React.createElement("a", { href: "#", onClick: (e) => {
                     e.preventDefault();
-                    this.props.navigate("/page2");
+                    this.props.navigate("/parent_page2");
                 } }, "Page2"));
     }
 }

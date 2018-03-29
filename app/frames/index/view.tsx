@@ -6,7 +6,7 @@ export default class extends React.Component<IViewProps<any, any>, {}> {
         return <div><h5>Index</h5>
             <a href="#" onClick={(e) => {
                 e.preventDefault();
-                this.props.navigate("/page2");
+                this.props.navigate("/parent_page2");
             }}>Page2</a>
         </div>;
     }

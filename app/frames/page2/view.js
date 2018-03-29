@@ -4,10 +4,10 @@ const React = require("react");
 class default_1 extends React.Component {
     render() {
         return React.createElement("div", null,
-            React.createElement("h5", null, "Index"),
+            React.createElement("h5", null, "Page2"),
             React.createElement("a", { href: "#", onClick: (e) => {
                     e.preventDefault();
-                    this.props.navigate("/");
+                    this.props.navigate("/parent_");
                 } }, "Go to index"));
     }
 }
