@@ -1,2 +1,8 @@
-import { Controller } from "neweb-core";
-export default Controller;
+import { FrameController } from "neweb";
+export default class extends FrameController<any, any, any> {
+    public getInitialData() {
+        return {
+            title: "Index page",
+        };
+    }
+}

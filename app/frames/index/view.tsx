@@ -1,4 +1,4 @@
-import { IViewProps } from "neweb-core";
+import { IViewProps } from "neweb";
 import React = require("react");
 
 export default class extends React.Component<IViewProps<any, any>, {}> {
@@ -6,7 +6,7 @@ export default class extends React.Component<IViewProps<any, any>, {}> {
         return <div><h5>Index</h5>
             <a href="#" onClick={(e) => {
                 e.preventDefault();
-                this.props.navigate("/parent_page2");
+                this.props.navigate("/parent_page2?f0_test=Hello");
             }}>Page2</a>
         </div>;
     }
