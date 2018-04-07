@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@types/react": "^16.1.0",
-    "neweb": "^0.6.1",
+    "neweb": "^0.6.3",
     "react": "^16.2.0"
   }
 }
