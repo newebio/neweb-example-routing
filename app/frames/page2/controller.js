@@ -5,6 +5,7 @@ class default_1 extends neweb_1.FrameController {
     getInitialData() {
         return {
             title: "Page2 title",
+            postId: Math.random(),
         };
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "neweb-example-routing",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@types/react": "^16.1.0",
-    "neweb": "^0.6.3",
+    "neweb": "^0.6.5",
     "react": "^16.2.0"
   }
 }
