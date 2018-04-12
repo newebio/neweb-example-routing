@@ -1,4 +1,7 @@
-import { ClassicRouter, MatchedRoute, PageRouteByFrame, PageRouteWithParent } from "neweb";
+import {
+    ClassicRouter, IPage, MatchedRoute, PageRouteByFrame, PageRouteWithAfterLoad,
+    PageRouteWithParent,
+} from "neweb";
 
 export default class Router extends ClassicRouter {
     public onInit() {
@@ -8,9 +11,19 @@ export default class Router extends ClassicRouter {
             }),
         };
         this.addRoute(MatchedRoute({ path: "/" },
-            PageRouteWithParent(parentMiddleware, PageRouteByFrame({ frameName: "index" }))));
+            PageRouteWithParent(parentMiddleware, PageRouteWithAfterLoad({
+                afterLoad: (page: IPage) => {
+                    page.title = "IndexPage";
+                },
+            },
+                PageRouteByFrame({ frameName: "index" })))));
+
         this.addRoute(MatchedRoute({ path: "/page2" },
-            PageRouteWithParent(parentMiddleware, PageRouteByFrame({ frameName: "page2" }))));
+            PageRouteWithParent(parentMiddleware, PageRouteWithAfterLoad({
+                afterLoad: (page: IPage) => {
+                    page.title = "Page2";
+                },
+            }, PageRouteByFrame({ frameName: "page2" })))));
         this.addRoute(MatchedRoute({ path: "/post/:name" },
             PageRouteWithParent(parentMiddleware, PageRouteByFrame({ frameName: "post" }))));
     }
