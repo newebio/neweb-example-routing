@@ -60,3 +60,4 @@ app/cache
 app/sessions
 sessions
 cache
+modules

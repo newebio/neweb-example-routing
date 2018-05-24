@@ -3,7 +3,7 @@ import {
     PageRouteWithParent,
 } from "neweb";
 
-export default class Router extends ClassicRouter {
+export default class Router extends ClassicRouter<any, any> {
     public onInit() {
         const parentMiddleware = {
             parentFrame: "parent", params: (_: any, context: any) => ({

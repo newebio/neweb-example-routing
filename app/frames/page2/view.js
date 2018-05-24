@@ -1,12 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const neweb_1 = require("neweb");
-const React = require("react");
-class default_1 extends React.Component {
-    render() {
-        return React.createElement("div", null,
-            React.createElement("h5", null, "Page2"),
-            React.createElement(neweb_1.Link, { href: "/post/post" + this.props.data.postId + "?test=Bye" }, "Go to index"));
+const operators_1 = require("rxjs/operators");
+class IndexView extends neweb_1.Component {
+    getTemplate() {
+        return `<div><h5>Page2</h5>
+            <a name="lnkPage2">Go to post</a>
+        </div>`;
+    }
+    beforeInit() {
+        this.addElement("lnkPage2", new neweb_1.Link({
+            href: this.props.data.postId.pipe(operators_1.map((value) => "/post/post" + value + "?test=Bye")),
+        }));
     }
 }
-exports.default = default_1;
+exports.default = IndexView;

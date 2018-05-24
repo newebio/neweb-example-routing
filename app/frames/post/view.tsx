@@ -1,10 +1,20 @@
-import { IViewProps, Link } from "neweb";
-import React = require("react");
-
-export default class extends React.Component<IViewProps<any, any>, {}> {
-    public render() {
-        return <div><h5>Post {this.props.params.name}</h5>
-            <Link href="/?test=John">Go to index</Link>
-        </div>;
+import { Component, Text } from "neweb";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+class IndexView extends Component<{
+    params: Observable<{
+        name: string;
+    }>;
+}> {
+    public getTemplate() {
+        return `<div><h5>Post<element name="postName"></element></h5>
+            <a type="neweb-link" href="/?test=John">Go to index</a>
+        </div>`;
+    }
+    public beforeInit() {
+        this.addElement("postName", new Text({
+            value: this.props.params.pipe(map((value) => value.name)),
+        }));
     }
 }
+export default IndexView;

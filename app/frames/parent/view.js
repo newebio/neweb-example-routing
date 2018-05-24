@@ -1,27 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const neweb_1 = require("neweb");
-const React = require("react");
-class default_1 extends React.Component {
-    render() {
-        return React.createElement("div", null,
-            React.createElement("div", null,
-                React.createElement(neweb_1.SeansStatusContext.Consumer, null, (status) => {
-                    return React.createElement("div", null,
-                        "Status:",
-                        status ? status : "");
-                }),
-                React.createElement(neweb_1.NetworkStatusContext.Consumer, null, (status) => {
-                    return React.createElement("div", null,
-                        "Network status:",
-                        status ? status : "");
-                })),
-            React.createElement("h5", null,
-                "Layout ",
-                this.props.params ? this.props.params.test : null,
-                " ",
-                this.props.data),
-            this.props.children);
+const operators_1 = require("rxjs/operators");
+class ParentView extends neweb_1.Component {
+    beforeInit() {
+        this.addElement("ticker", new neweb_1.Text({
+            value: this.props.data.counter,
+        }));
+        this.addElement("children", new neweb_1.Dynamic({
+            component: this.props.children.children,
+        }));
+        this.addElement("params", new neweb_1.Text({
+            value: this.props.params.pipe(operators_1.map((params) => params.test ? params.test : "NoParams")),
+        }));
+    }
+    getTemplate() {
+        return `<div><h5>Layout::<element name="params"></element></h5>
+        <strong name="ticker"></strong>
+        <div name="children"></div>
+        </div>`;
     }
 }
-exports.default = default_1;
+exports.default = ParentView;
