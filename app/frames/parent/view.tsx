@@ -1,4 +1,4 @@
-import { Component, Dynamic, Text } from "neweb";
+import { Component, DynamicComponent, TextNode } from "neweb";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
@@ -13,19 +13,19 @@ class ParentView extends Component<{
         test?: string;
     }>;
 }> {
-    beforeInit() {
-        this.addElement("ticker", new Text({
+    beforeMount() {
+        this.addElement("ticker", new TextNode({
             value: this.props.data.counter,
         }));
-        this.addElement("children", new Dynamic({
+        this.addElement("children", new DynamicComponent({
             component: this.props.children.children,
         }));
-        this.addElement("params", new Text({
+        this.addElement("params", new TextNode({
             value: this.props.params.pipe(map((params) => params.test ? params.test : "NoParams")),
         }));
     }
     getTemplate() {
-        return `<div><h5>Layout::<element name="params"></element></h5>
+        return `<div><h5>Layout::<template name="params"></template></h5>
         <strong name="ticker"></strong>
         <div name="children"></div>
         </div>`;

@@ -11,9 +11,9 @@ class IndexView extends Component<{
             <a name="lnkPage2">Go to post</a>
         </div>`;
     }
-    public beforeInit() {
+    public beforeMount() {
         this.addElement("lnkPage2", new Link({
-            href: this.props.data.postId.pipe(map((value) =>
+            url: this.props.data.postId.pipe(map((value) =>
                 "/post/post" + value + "?test=Bye",
             )),
         }));

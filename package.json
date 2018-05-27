@@ -28,7 +28,7 @@
     "typescript": "^2.8.1"
   },
   "dependencies": {
-    "neweb": "^0.12.2",
+    "neweb": "^0.13.1",
     "rxjs": "^6.2.0"
   }
 }

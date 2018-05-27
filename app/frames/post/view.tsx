@@ -1,4 +1,4 @@
-import { Component, Text } from "neweb";
+import { Component, TextNode } from "neweb";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 class IndexView extends Component<{
@@ -11,8 +11,8 @@ class IndexView extends Component<{
             <a type="neweb-link" href="/?test=John">Go to index</a>
         </div>`;
     }
-    public beforeInit() {
-        this.addElement("postName", new Text({
+    public beforeMount() {
+        this.addElement("postName", new TextNode({
             value: this.props.params.pipe(map((value) => value.name)),
         }));
     }

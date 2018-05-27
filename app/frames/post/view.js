@@ -8,8 +8,8 @@ class IndexView extends neweb_1.Component {
             <a type="neweb-link" href="/?test=John">Go to index</a>
         </div>`;
     }
-    beforeInit() {
-        this.addElement("postName", new neweb_1.Text({
+    beforeMount() {
+        this.addElement("postName", new neweb_1.TextNode({
             value: this.props.params.pipe(operators_1.map((value) => value.name)),
         }));
     }

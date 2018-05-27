@@ -2903,7 +2903,7 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
-jsdom@^11.10.0:
+jsdom@^11.11.0:
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-11.11.0.tgz#df486efad41aee96c59ad7a190e2449c7eb1110e"
   dependencies:
@@ -3372,18 +3372,11 @@ neweb-browser@^0.11.0:
     neweb-core "^0.10.3"
     onemitter "^0.2.4"
 
-neweb-components@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/neweb-components/-/neweb-components-0.11.1.tgz#0c19993aff4ac7963c3b919fc12ff68c66e5fd8f"
+neweb-components@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/neweb-components/-/neweb-components-0.13.2.tgz#cdbd7eff8a930200645f32d630082c8a7be67131"
   dependencies:
-    "@types/debug" "^0.0.30"
-    "@types/jsdom" "^11.0.4"
-    debug "^3.1.0"
-    jsdom "^11.10.0"
     morphdom "^2.3.3"
-    neweb-core "^0.11.0"
-    onemitter "^0.2.4"
-    rxjs "^6.2.0"
 
 neweb-core@^0.10.3:
   version "0.10.3"
@@ -3429,13 +3422,14 @@ neweb-server@^0.11.0:
     uid-safe "^2.1.5"
     with-error "^0.1.1"
 
-neweb@^0.12.2:
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/neweb/-/neweb-0.12.2.tgz#a188ca923dd2ec6005d11b9de8c0c4dc908c7291"
+neweb@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/neweb/-/neweb-0.13.1.tgz#fea1a6383f2363069b941c271090e7c79f26241f"
   dependencies:
     "@types/debug" "^0.0.30"
     "@types/express" "^4.11.1"
     "@types/express-session" "^1.15.8"
+    "@types/jsdom" "^11.0.4"
     "@types/mkdirp" "^0.5.2"
     "@types/node" "^10.0.8"
     "@types/react" "^16.3.14"
@@ -3448,13 +3442,15 @@ neweb@^0.12.2:
     express "^4.16.3"
     express-session "^1.15.6"
     html-loader "^0.5.5"
+    jsdom "^11.11.0"
     mkdirp "^0.5.1"
     neweb-browser "^0.11.0"
-    neweb-components "^0.11.1"
+    neweb-components "^0.13.2"
     neweb-core "^0.11.0"
     neweb-pack "^0.11.0"
     neweb-react "^0.0.3"
     neweb-server "^0.11.0"
+    onemitter "^0.2.4"
     react "^16.3.2"
     react-dom "^16.3.2"
     rxjs "^6.2.0"
