@@ -1,14 +1,14 @@
 import { Component, DynamicComponent, TextNode } from "neweb";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, pluck, distinct } from "rxjs/operators";
 
 class ParentView extends Component<{
     data: {
         counter: Observable<string>;
     };
-    children: {
+    children: Observable<{
         children: Component<any>;
-    };
+    }>;
     params: Observable<{
         test?: string;
     }>;
@@ -18,7 +18,7 @@ class ParentView extends Component<{
             value: this.props.data.counter,
         }));
         this.addElement("children", new DynamicComponent({
-            component: this.props.children.children,
+            component: this.props.children.pipe<any>(pluck("children"), distinct()),
         }));
         this.addElement("params", new TextNode({
             value: this.props.params.pipe(map((params) => params.test ? params.test : "NoParams")),
